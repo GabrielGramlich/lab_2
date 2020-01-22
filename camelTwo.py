@@ -1,10 +1,20 @@
 # This was to attempt to convert camel.py into a list comprehension, but nope. I'll work on this later.
 
 def main():
-    user_string = get_input
-    camel_case = perfrom_camel_casing(user_string)
+    display_banner()
+    words = get_input()
+    camel_case = perfrom_camel_casing(words)
     camel_case_validated = validate_camel_case(camel_case)
-    display_camel_case(camel_case)
+    display_camel_case(camel_case_validated)
+
+
+def display_banner():
+    print('\n')
+    message = "* thisIsTheGreatestProgramYouWillEverUse *"
+    print('*' * len(message))
+    print(message)
+    print('*' * len(message))
+    print('\n')
 
 
 def get_input():
@@ -12,7 +22,7 @@ def get_input():
     return words
 
 
-def perfrom_camel_casing(user_string):
+def perfrom_camel_casing(words):
     first_word = words[0].lower()
     camel_case = first_word
 
@@ -22,12 +32,16 @@ def perfrom_camel_casing(user_string):
     for word in rest_of_words_capitalized:
         camel_case += word
 
+    return camel_case
+
 
 def validate_camel_case(camel_case):
     camel_case = camel_case.replace('.', '')
     camel_case = camel_case.replace('#', '')
     camel_case = camel_case.replace('/', '')
     camel_case = camel_case.replace('\\', '')
+
+    return camel_case
 
 
 def display_camel_case(camel_case):
